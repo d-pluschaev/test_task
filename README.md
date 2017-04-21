@@ -14,7 +14,9 @@ bin/console doctrine:schema:create
 ```
 
 **Console import**
+```bash
 bin/console admin:users-import-csv data/users.csv
+```
 
 **Questions**
 1. How to improve search performance in this application? 
