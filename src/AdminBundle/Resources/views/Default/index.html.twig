@@ -1,0 +1,27 @@
+{% extends 'AdminBundle:Default:base.html.twig' %}
+
+{% block title %}
+    {% include 'AdminBundle:Default:index/title.html.twig' %}
+{% endblock %}
+
+{% block css %}
+    {% include 'AdminBundle:Default:index/css.html.twig' %}
+{% endblock %}
+
+{% block navbar %}
+    {% include 'AdminBundle:Default:index/navbar.html.twig' %}
+{% endblock %}
+
+{% block page %}
+    <div class="container">
+        {% include 'AdminBundle:Default:index/page.html.twig' %}
+    </div>
+{% endblock %}
+
+{% block footer %}
+    {% include 'AdminBundle:Default:index/footer.html.twig' %}
+{% endblock %}
+
+{% block js %}
+    {% include 'AdminBundle:Default:index/js.html.twig' %}
+{% endblock %}
