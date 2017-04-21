@@ -1,6 +1,5 @@
-
 // startup
-window.onload = function() {
+window.onload = function () {
 
     $('a[data-toggle="tab"]').on('shown.bs.tab', function (e) {
         var target = $(e.target).attr("href");
@@ -136,6 +135,8 @@ class ViewSearch {
         });
 
         this.elSearchForm.on("submit", this.searchSubmit.bind(this));
+
+        $.fn.datepicker.defaults.autoclose = true;
     }
 
     searchSubmit() {
@@ -165,10 +166,12 @@ class ViewSearch {
             data: formData
         })
             .done(function (data) {
+                self.loadingModeEnable(false);
                 self.onSearchResponse(data);
             })
             .fail(function (msg) {
-                this.requestInProgress = false;
+                self.requestInProgress = false;
+                self.loadingModeEnable(false);
                 alert("Request error");
             });
         this.loadingModeEnable(true);
@@ -182,7 +185,6 @@ class ViewSearch {
             this.resultRenderPagination(data.count, data.limit, data.offset);
             this.resultSetResults(data);
         }
-        this.loadingModeEnable(false);
     }
 
     resultSetCount(count, limit) {
@@ -214,7 +216,7 @@ class ViewSearch {
     }
 
     resultHighlight(val, term) {
-        return val.replace(new RegExp(term), "<span class='highlight'>" + term + "</span>");
+        return val.toString().replace(new RegExp(term), "<span class='highlight'>" + term + "</span>");
     }
 
     resultsClear() {
@@ -260,7 +262,7 @@ class AjaxAdapter {
      * @returns {Promise}
      */
     static uploadFile(url, fileObj) {
-        return new Promise(function(resolve, reject) {
+        return new Promise(function (resolve, reject) {
             var xhr = AjaxAdapter._prepareXhr(resolve, reject);
             xhr.open("POST", url, true);
 
@@ -272,7 +274,7 @@ class AjaxAdapter {
 
     static _prepareXhr(resolve, reject) {
         var xhr = new XMLHttpRequest();
-        xhr.onreadystatechange = function() {
+        xhr.onreadystatechange = function () {
             if (this.readyState == 4) {
                 if (this.status == 200) {
                     var res;
@@ -290,7 +292,7 @@ class AjaxAdapter {
             }
         };
 
-        xhr.onerror = function() {
+        xhr.onerror = function () {
             reject(new Error("Network Error"));
         };
 
