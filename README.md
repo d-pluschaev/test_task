@@ -3,15 +3,7 @@
 
 
 **Demo**
-http://46.101.202.83/demo/web/admin/#
-
-**Used technologies**
-- PHP 5.6+
-- Symphony 3
-- MySQL
-- Bootstrap 3
-- JQuery
-- Lots of native PHP & JS
+http://46.101.202.83/demo/web/admin/
 
 **Installation**
 ```bash
@@ -32,3 +24,11 @@ the first step should be: avoid duplicates in DB and eliminate
 filtration inside DB query.
 Another step is to use full text search engine and handle wildcards and 
 other features
+
+**Used technologies**
+- PHP 5.6+
+- Symphony 3
+- MySQL
+- Bootstrap 3
+- JQuery
+- Lots of native PHP & JS
