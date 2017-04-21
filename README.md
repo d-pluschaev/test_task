@@ -24,3 +24,9 @@ bin/console admin:users-import-csv data/users.csv
 
 **Questions**
 1. How to improve search performance in this application? 
+
+`The bottleneck of this search query is duplicate email filtration. So
+the first step should be: avoid duplicates in DB and eliminate 
+filtration inside DB query.
+Another step is to use full text search engine and handle wildcards and 
+other features`
